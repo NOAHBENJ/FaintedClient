@@ -37,11 +37,13 @@ public class ModuleManager {
 		
 		//RENDER
 		
+		newMod(new ChinaHat());
 		newMod(new ESP());
 		newMod(new FullBright());
 		newMod(new Tracers());
 		newMod(new ClickGUI());
 		newMod(new KeystrokesMod());
+		newMod(new RiseESP());
 		
 		//MISC
 		
