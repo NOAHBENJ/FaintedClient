@@ -30,7 +30,7 @@ public class ESP extends Module{
 					ChestESPUtils.blockESPBox(((TileEntityChest)o).getPos());
 				}
 			}
-			for(Object e : mc.theWorld.loadedTileEntityList) {
+			/*for(Object e : mc.theWorld.loadedTileEntityList) {
 				if(e instanceof EntityPlayer) {
 					MobESPUtils.entityESPBox(((Entity)e), 0);
 				}
@@ -44,7 +44,7 @@ public class ESP extends Module{
 				if(f instanceof EntityAnimal) {
 					MobESPUtils.entityESPBox(((Entity)f), 0);
 				}
-			} 
+			} */
 		}
 	}
 
