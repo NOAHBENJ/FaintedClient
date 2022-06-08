@@ -38,12 +38,12 @@ public class ModuleManager {
 		//RENDER
 		
 		newMod(new ChinaHat());
+		newMod(new ClickGUI());
 		newMod(new ESP());
 		newMod(new FullBright());
-		newMod(new Tracers());
-		newMod(new ClickGUI());
-		newMod(new KeystrokesMod());
+		newMod(new Keystrokes());
 		newMod(new RiseESP());
+		newMod(new Tracers());
 		
 		//MISC
 		

@@ -44,7 +44,7 @@ public class ESP extends Module{
 				if(f instanceof EntityAnimal) {
 					MobESPUtils.entityESPBox(((Entity)f), 0);
 				}
-			} */
+			} */ 
 		}
 	}
 
