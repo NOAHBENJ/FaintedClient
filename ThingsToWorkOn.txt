@@ -1,13 +1,12 @@
 ---------------
 RENDER
 ---------------
-1. Target HUD
+1. Target HUD // SOON
 2. Chams
-3. Hitmarkers
+3. Hitmarkers // SOON
 4. ItemPhysics
-6. NoWeather
 7. NoHurtCam
-8. XRay
+8. XRay // BUGGED
 ----------------
 PLAYER
 ----------------
@@ -52,3 +51,4 @@ DONE
 --------------------
 5. Nametags
 2. Auto Clicker
+6. NoWeather
