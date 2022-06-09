@@ -46,10 +46,9 @@ MOVEMENT
 GHOST CHEATS
 --------------------
 1. Reach
-2. Auto Clicker
 3. AimAssist
-4. LigitFightBot
 --------------------
 DONE
 --------------------
 5. Nametags
+2. Auto Clicker
