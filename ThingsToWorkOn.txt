@@ -5,7 +5,6 @@ RENDER
 2. Chams
 3. Hitmarkers
 4. ItemPhysics
-5. Nametags
 6. NoWeather
 7. NoHurtCam
 8. XRay
@@ -53,3 +52,4 @@ GHOST CHEATS
 --------------------
 DONE
 --------------------
+5. Nametags
