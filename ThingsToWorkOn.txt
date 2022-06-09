@@ -1,0 +1,55 @@
+---------------
+RENDER
+---------------
+1. Target HUD
+2. Chams
+3. Hitmarkers
+4. ItemPhysics
+5. Nametags
+6. NoWeather
+7. NoHurtCam
+8. XRay
+----------------
+PLAYER
+----------------
+1. Better Scaffold
+2. Stealer
+3. FastPlace
+4. Blink
+5. AutoTool
+6. FastBow
+---------------
+COMBAT
+---------------
+1. TPAura
+2. WTap
+3. Better Kill Aura
+4. STap
+5. Auto Soup
+6. AutoGap
+7. AutoPot
+8. Target Strafe
+9. Criticals
+10. ComboOneHit
+----------------------
+MOVEMENT
+----------------------
+1. Bow Fly
+2. Click TP
+3. NoSlow
+4. LongJump
+5. Strafe
+6. Phase
+7. InvMove
+8. Jesus
+9. Better Spider
+--------------------
+GHOST CHEATS
+--------------------
+1. Reach
+2. Auto Clicker
+3. AimAssist
+4. LigitFightBot
+--------------------
+DONE
+--------------------
