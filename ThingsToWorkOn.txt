@@ -7,7 +7,6 @@ RENDER
 4. ItemPhysics
 7. NoHurtCam
 8. XRay // BUGGED
-9. Launcher // Working on that now!
 ----------------
 PLAYER
 ----------------
