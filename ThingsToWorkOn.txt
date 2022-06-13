@@ -6,16 +6,13 @@ RENDER
 3. Hitmarkers // SOON
 4. ItemPhysics
 7. NoHurtCam
-8. XRay // BUGGED
+8. XRay // DONE, MAKING SELECTION W/ CONFIG
 ----------------
 PLAYER
 ----------------
-1. Better Scaffold
-2. Stealer
-3. FastPlace
+2. Stealer // MAKING PACKET SYSTEM
 4. Blink
 5. AutoTool
-6. FastBow
 ---------------
 COMBAT
 ---------------
@@ -52,3 +49,5 @@ DONE
 5. Nametags
 2. Auto Clicker
 6. NoWeather
+2. FastBow
+3. FastPlace
