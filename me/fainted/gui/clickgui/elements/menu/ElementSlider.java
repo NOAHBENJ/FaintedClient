@@ -5,7 +5,7 @@ import java.awt.Color;
 import me.fainted.gui.clickgui.elements.Element;
 import me.fainted.gui.clickgui.elements.ModuleButton;
 import me.fainted.gui.clickgui.util.ColorUtil;
-import me.fainted.gui.clickgui.util.FontUtil;
+import me.fainted.gui.font.FontUtil;
 import me.fainted.gui.settings.Setting;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.util.MathHelper;
@@ -45,8 +45,8 @@ public class ElementSlider extends Element {
 		/*
 		 * Den Text rendern
 		 */
-		FontUtil.drawString(setstrg, x + 1, y + 2, 0xffffffff);
-		FontUtil.drawString(displayval, x + width - FontUtil.getStringWidth(displayval), y + 2, 0xffffffff);
+		FontUtil.normal.drawString(setstrg, x + 1, y + 2, 0xffffffff);
+		FontUtil.normal.drawString(displayval, x + width - FontUtil.normal.getStringWidth(displayval), y + 2, 0xffffffff);
 
 		/*
 		 * Den Slider rendern

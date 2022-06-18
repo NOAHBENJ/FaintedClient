@@ -12,7 +12,7 @@ import me.fainted.gui.clickgui.elements.menu.ElementCheckBox;
 import me.fainted.gui.clickgui.elements.menu.ElementComboBox;
 import me.fainted.gui.clickgui.elements.menu.ElementSlider;
 import me.fainted.gui.clickgui.util.ColorUtil;
-import me.fainted.gui.clickgui.util.FontUtil;
+import me.fainted.gui.font.FontUtil;
 import me.fainted.gui.settings.Setting;
 import me.fainted.module.Module;
 import net.minecraft.client.Minecraft;
@@ -95,7 +95,7 @@ public class ModuleButton {
 		/*
 		 * Den Namen des Modules in die Mitte (x und y) rendern
 		 */
-		FontUtil.drawTotalCenteredStringWithShadow(mod.getName(), x + width / 2, y + 1 + height / 2, textcolor);
+		FontUtil.normal.drawCenteredStringWithShadow(mod.getName(), x + width / 2, y + 1 + height / 2 - 4, textcolor);
 	}
 
 	/*

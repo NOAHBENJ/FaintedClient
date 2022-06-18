@@ -88,7 +88,7 @@ extends GuiScreen {
                 }
             }
         }
-        this.drawDefaultBackground();
+        this.drawBackground(0, "wood_bg.png");
         this.drawString(this.fontRendererObj, this.mc.session.getUsername(), 10, 10, -7829368);
         FontRenderer fontRendererObj = this.fontRendererObj;
         StringBuilder sb2 = new StringBuilder("Account Manager - ");

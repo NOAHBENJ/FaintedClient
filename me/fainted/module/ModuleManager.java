@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import me.fainted.Fainted;
 import me.fainted.module.combat.*;
+import me.fainted.module.misc.*;
 import me.fainted.module.movement.*;
+import me.fainted.module.player.*;
 import me.fainted.module.render.*;
 
 public class ModuleManager {
@@ -35,6 +37,9 @@ public class ModuleManager {
 		newMod(new Step());
 		//PLAYER
 		
+		newMod(new FastPlace());
+		newMod(new FastBreak());
+		
 		//RENDER
 		
 		newMod(new ChinaHat());
@@ -42,10 +47,14 @@ public class ModuleManager {
 		newMod(new ESP());
 		newMod(new FullBright());
 		newMod(new Keystrokes());
+		newMod(new Nametags());
 		newMod(new RiseESP());
 		newMod(new Tracers());
+		newMod(new TargetHUD());
+		newMod(new XRay());
 		
 		//MISC
+		newMod(new ColourUtilModule());
 		
 	}
 	

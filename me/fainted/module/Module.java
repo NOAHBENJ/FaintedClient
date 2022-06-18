@@ -3,6 +3,7 @@ package me.fainted.module;
 import java.awt.Color;
 
 import me.fainted.Fainted;
+import me.fainted.events.Event;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.Gui;
@@ -14,9 +15,9 @@ import net.minecraft.network.Packet;
 public class Module {
 
 	protected Minecraft mc = Minecraft.getMinecraft();
-	private String name;
+	public String name;
 	private int key;
-	private boolean toggled;
+	public boolean toggled;
 	private Category category;
 	
 	public Module(String nm, int k, Category c) {
@@ -26,7 +27,7 @@ public class Module {
 		toggled = false;
 		setup();
 	}
-
+	
 	public void toggle() {
 		toggled = !toggled;
 		if (toggled) {
@@ -41,6 +42,10 @@ public class Module {
 	}
 	
 	public void onDisable() {
+		
+	}
+	
+	public void onEvent(Event e) {
 		
 	}
 	

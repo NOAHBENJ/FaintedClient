@@ -6,7 +6,7 @@ import me.fainted.Fainted;
 import me.fainted.gui.clickgui.elements.Element;
 import me.fainted.gui.clickgui.elements.ModuleButton;
 import me.fainted.gui.clickgui.util.ColorUtil;
-import me.fainted.gui.clickgui.util.FontUtil;
+import me.fainted.gui.font.FontUtil;
 import me.fainted.gui.settings.Setting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -40,7 +40,7 @@ public class ElementComboBox extends Element {
 		 */
 		Gui.drawRect(x, y, x + width, y + height, 0xff1a1a1a);
 
-		FontUtil.drawTotalCenteredString(setstrg, x + width / 2, y + 15/2, 0xffffffff);
+		FontUtil.normal.drawCenteredString(setstrg, x + width / 2, y + 15/2, 0xffffffff);
 		int clr1 = color;
 		int clr2 = temp.getRGB();
 
@@ -50,23 +50,23 @@ public class ElementComboBox extends Element {
 			double ay = y + 15;
 			for (String sld : set.getOptions()) {
 				String elementtitle = sld.substring(0, 1).toUpperCase() + sld.substring(1, sld.length());
-				FontUtil.drawCenteredString(elementtitle, x + width / 2, ay + 2, 0xffffffff);
+				FontUtil.normal.drawCenteredString(elementtitle, x + width / 2, ay + 1, 0xffffffff);
 				
 				/*
 				 * Ist das Element ausgew�hlt, wenn ja dann markiere
 				 * das Element in der ComboBox
 				 */
 				if (sld.equalsIgnoreCase(set.getValString())) {
-					Gui.drawRect(x, ay, x + 1.5, ay + FontUtil.getFontHeight() + 2, clr1);
+					Gui.drawRect(x, ay, x + 1.5, ay + FontUtil.normal.getHeight() + 2, clr1);
 				}
 				/*
 				 * Wie bei mouseClicked 'is hovered', wenn ja dann markiere
 				 * das Element in der ComboBox
 				 */
-				if (mouseX >= x && mouseX <= x + width && mouseY >= ay && mouseY < ay + FontUtil.getFontHeight() + 2) {
-					Gui.drawRect(x + width - 1.2, ay, x + width, ay + FontUtil.getFontHeight() + 2, clr2);
+				if (mouseX >= x && mouseX <= x + width && mouseY >= ay && mouseY < ay + FontUtil.normal.getHeight() + 2) {
+					Gui.drawRect(x + width - 1.2, ay, x + width, ay + FontUtil.normal.getHeight() + 2, clr2);
 				}
-				ay += FontUtil.getFontHeight() + 2;
+				ay += FontUtil.normal.getHeight() + 2;
 			}
 		}
 	}
@@ -90,7 +90,7 @@ public class ElementComboBox extends Element {
 			if (!comboextended)return false;
 			double ay = y + 15;
 			for (String slcd : set.getOptions()) {
-				if (mouseX >= x && mouseX <= x + width && mouseY >= ay && mouseY <= ay + FontUtil.getFontHeight() + 2) {
+				if (mouseX >= x && mouseX <= x + width && mouseY >= ay && mouseY <= ay + FontUtil.normal.getHeight() + 2) {
 					if(Fainted.instance.settingsManager.getSettingByName("Sound").getValBoolean())
 					Minecraft.getMinecraft().thePlayer.playSound("tile.piston.in", 20.0F, 20.0F);
 					
@@ -98,7 +98,7 @@ public class ElementComboBox extends Element {
 					clickgui.setmgr.getSettingByName(set.getName()).setValString(slcd.toLowerCase());
 					return true;
 				}
-				ay += FontUtil.getFontHeight() + 2;
+				ay += FontUtil.normal.getHeight() + 2;
 			}
 		}
 

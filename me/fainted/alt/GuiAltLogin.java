@@ -38,7 +38,7 @@ extends GuiScreen {
 
     @Override
     public void drawScreen(int x2, int y2, float z2) {
-        this.drawDefaultBackground();
+        this.drawBackground(0, "wood_bg.png");
         this.username.drawTextBox();
         this.password.drawTextBox();
         this.drawCenteredString(this.mc.fontRendererObj, "Alt Login", width / 2, 20, -1);

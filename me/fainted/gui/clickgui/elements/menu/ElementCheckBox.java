@@ -5,7 +5,7 @@ import java.awt.Color;
 import me.fainted.gui.clickgui.elements.Element;
 import me.fainted.gui.clickgui.elements.ModuleButton;
 import me.fainted.gui.clickgui.util.ColorUtil;
-import me.fainted.gui.clickgui.util.FontUtil;
+import me.fainted.gui.font.FontUtil;
 import me.fainted.gui.settings.Setting;
 import net.minecraft.client.gui.Gui;
 
@@ -41,7 +41,7 @@ public class ElementCheckBox extends Element {
 		/*
 		 * Titel und Checkbox rendern.
 		 */
-		FontUtil.drawString(setstrg, x + width - FontUtil.getStringWidth(setstrg), y + FontUtil.getFontHeight() / 2 - 0.5, 0xffffffff);
+		FontUtil.normal.drawString(setstrg, x + width - FontUtil.normal.getStringWidth(setstrg), y + FontUtil.normal.getHeight() / 2 - 0.5 - 2, 0xffffffff);
 		Gui.drawRect(x + 1, y + 2, x + 12, y + 13, set.getValBoolean() ? color : 0xff000000);
 		if (isCheckHovered(mouseX, mouseY))
 			Gui.drawRect(x + 1, y + 2, x + 12, y + 13, 0x55111111);

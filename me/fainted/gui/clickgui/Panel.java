@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import me.fainted.Fainted;
 import me.fainted.gui.clickgui.elements.ModuleButton;
 import me.fainted.gui.clickgui.util.ColorUtil;
-import me.fainted.gui.clickgui.util.FontUtil;
+import me.fainted.gui.font.FontUtil;
 import net.minecraft.client.gui.Gui;
 
 /**
@@ -69,11 +69,11 @@ public class Panel {
 		Gui.drawRect(x, y, x + width, y + height, 0xff121212);
 		if(Fainted.instance.settingsManager.getSettingByName("Design").getValString().equalsIgnoreCase("New")){
 			Gui.drawRect(x - 2, y, x, y + height, outlineColor);
-			FontUtil.drawStringWithShadow(title, x + 2, y + height / 2 - FontUtil.getFontHeight()/2, 0xffefefef);
+			FontUtil.normal.drawStringWithShadow(title, x + 2, y + height / 2 - FontUtil.normal.getHeight()/2, 0xffefefef);
 		}else if(Fainted.instance.settingsManager.getSettingByName("Design").getValString().equalsIgnoreCase("JellyLike")){
 			Gui.drawRect(x + 4,			y + 2, x + 4.3, 		y + height - 2, 0xffaaaaaa);
 			Gui.drawRect(x - 4 + width, y + 2, x - 4.3 + width, y + height - 2, 0xffaaaaaa);
-			FontUtil.drawTotalCenteredStringWithShadow(title, x + width / 2, y + height / 2, 0xffefefef);
+			FontUtil.normal.drawCenteredStringWithShadow(title, x + width / 2, y + height / 2, 0xffefefef);
 		}
 		
 		if (this.extended && !Elements.isEmpty()) {

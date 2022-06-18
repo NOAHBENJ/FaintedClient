@@ -15,6 +15,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.network.play.client.C02PacketUseEntity;
 import net.minecraft.network.play.client.C0APacketAnimation;
 import net.minecraft.network.play.client.C02PacketUseEntity.Action;
+import net.minecraft.network.NetworkManager;
 
 public class Velocity extends Module{
 
@@ -31,17 +32,5 @@ public class Velocity extends Module{
 		
 	}
 	
-	public void onDisable() {
-		mc.thePlayer.motionX *=  100 / 100;
-		mc.thePlayer.motionY *=  100 / 100;
-		mc.thePlayer.motionZ *=  100 / 100;
-	}
 	
-	public void onUpdate() {
-		if(this.isToggled()) {
-			mc.thePlayer.motionX *= 0;
-			mc.thePlayer.motionY *= 0;
-			mc.thePlayer.motionZ *= 0;
-		}
-	}
 }

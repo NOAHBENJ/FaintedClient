@@ -3,6 +3,8 @@ package me.fainted.alt;
 
 import java.io.IOException;
 import java.net.Proxy;
+import java.nio.charset.Charset;
+import java.util.Random;
 
 import org.lwjgl.input.Keyboard;
 
@@ -30,6 +32,20 @@ extends GuiScreen {
         this.manager = manager;
     }
 
+    public String generateCrackedAltUsername(int len) {
+    	int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = len;
+        Random random = new Random();
+
+        String usr = random.ints(leftLimit, rightLimit + 1)
+          .limit(targetStringLength)
+          .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+          .toString();
+
+        return usr;
+    }
+    
     @Override
     protected void actionPerformed(GuiButton button) {
         switch (button.id) {
@@ -40,6 +56,13 @@ extends GuiScreen {
             }
             case 1: {
                 this.mc.displayGuiScreen(this.manager);
+                break;
+            }
+            case 2: {
+            	String usr = generateCrackedAltUsername(14);
+            	AddAltThread login = new AddAltThread(usr, "");
+                login.start();
+                break;
             }
         }
     }
@@ -66,6 +89,7 @@ extends GuiScreen {
         this.buttonList.clear();
         this.buttonList.add(new GuiButton(0, width / 2 - 100, height / 4 + 92 + 12, "Login"));
         this.buttonList.add(new GuiButton(1, width / 2 - 100, height / 4 + 116 + 12, "Back"));
+        this.buttonList.add(new GuiButton(2, width / 2 - 100, height / 4 + 140 + 12, "Random Cracked"));
         this.username = new GuiTextField(this.eventButton, this.mc.fontRendererObj, width / 2 - 100, 60, 200, 20);
         this.password = new PasswordField(this.mc.fontRendererObj, width / 2 - 100, 100, 200, 20);
     }
@@ -91,6 +115,8 @@ extends GuiScreen {
         catch (IOException e) {
             e.printStackTrace();
         }
+       
+        
         this.username.mouseClicked(par1, par2, par3);
         this.password.mouseClicked(par1, par2, par3);
     }

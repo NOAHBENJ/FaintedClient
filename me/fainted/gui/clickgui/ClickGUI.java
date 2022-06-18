@@ -14,7 +14,7 @@ import me.fainted.gui.clickgui.elements.Element;
 import me.fainted.gui.clickgui.elements.ModuleButton;
 import me.fainted.gui.clickgui.elements.menu.ElementSlider;
 import me.fainted.gui.clickgui.util.ColorUtil;
-import me.fainted.gui.clickgui.util.FontUtil;
+import me.fainted.gui.font.FontUtil;
 import me.fainted.gui.settings.SettingsManager;
 import me.fainted.module.Category;
 import me.fainted.module.Module;
@@ -52,7 +52,7 @@ public class ClickGUI extends GuiScreen {
 	public ClickGUI() {
 		setmgr = Fainted.instance.settingsManager;
 		
-		FontUtil.setupFontUtils();
+		//FontUtil.normal.setupFontUtils();
 		panels = new ArrayList<>();
 		double pwidth = 80;
 		double pheight = 15;
@@ -114,7 +114,7 @@ public class ClickGUI extends GuiScreen {
 		/*															*/ ScaledResolution s = new ScaledResolution(mc);
   		/* DO NOT REMOVE											*/ GL11.glPushMatrix();
 		 GL11.glTranslated(s.getScaledWidth(), s.getScaledHeight(), 0);GL11.glScaled(0.5, 0.5, 0.5);
-		 FontUtil.drawStringWithShadow("b"+"y"+ "N"+"O"+"A"+"H"+"B"+"E"+"N"+"J", -Minecraft.getMinecraft().fontRendererObj.getStringWidth("b"+"y"+ "H"+"e"+"r"+"o"+"C"+"o"+"d"+"e"), -Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT, 0xff11F86B);
+		 FontUtil.normal.drawStringWithShadow("by NOAHBENJ", -Minecraft.getMinecraft().fontRendererObj.getStringWidth("by NOAHBENJ"), -Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT, 0xff11F86B);
 		/*															*/ GL11.glPopMatrix();
 		
 		mb = null;
@@ -173,11 +173,11 @@ public class ClickGUI extends GuiScreen {
 			GL11.glPushMatrix();
 			GL11.glTranslatef(s.getScaledWidth() / 2, s.getScaledHeight() / 2, 0.0F);
 			GL11.glScalef(4.0F, 4.0F, 0F);
-			FontUtil.drawTotalCenteredStringWithShadow("Listening...", 0, -10, 0xffffffff);
+			FontUtil.normal.drawCenteredStringWithShadow("Listening...", 0, -10, 0xffffffff);
 			GL11.glScalef(0.5F, 0.5F, 0F);
-			FontUtil.drawTotalCenteredStringWithShadow("Press 'ESCAPE' to unbind " + mb.mod.getName() + (mb.mod.getKey() > -1 ? " (" + Keyboard.getKeyName(mb.mod.getKey())+ ")" : ""), 0, 0, 0xffffffff);
+			FontUtil.normal.drawCenteredStringWithShadow("Press 'ESCAPE' to unbind " + mb.mod.getName() + (mb.mod.getKey() > -1 ? " (" + Keyboard.getKeyName(mb.mod.getKey())+ ")" : ""), 0, 0, 0xffffffff);
 			GL11.glScalef(0.25F, 0.25F, 0F);
-			FontUtil.drawTotalCenteredStringWithShadow("by HeroCode", 0, 20, 0xffffffff);
+			FontUtil.normal.drawCenteredStringWithShadow("by NOAHBENJ", 0, 20, 0xffffffff);
 			GL11.glPopMatrix();
 		}
 		

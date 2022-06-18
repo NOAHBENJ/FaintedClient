@@ -1,7 +1,7 @@
 package me.fainted.gui.clickgui.elements;
 
 import me.fainted.gui.clickgui.ClickGUI;
-import me.fainted.gui.clickgui.util.FontUtil;
+import me.fainted.gui.font.FontUtil;
 import me.fainted.gui.settings.Setting;
 
 /**
@@ -46,17 +46,17 @@ public class Element {
 		String sname = set.getName();
 		if(set.isCheck()){
 			setstrg = sname.substring(0, 1).toUpperCase() + sname.substring(1, sname.length());
-			double textx = x + width - FontUtil.getStringWidth(setstrg);
+			double textx = x + width - FontUtil.normal.getStringWidth(setstrg);
 			if (textx < x + 13) {
 				width += (x + 13) - textx + 1;
 			}
 		}else if(set.isCombo()){
-			height = comboextended ? set.getOptions().size() * (FontUtil.getFontHeight() + 2) + 15 : 15;
+			height = comboextended ? set.getOptions().size() * (FontUtil.normal.getHeight() + 2) + 15 : 15;
 			
 			setstrg = sname.substring(0, 1).toUpperCase() + sname.substring(1, sname.length());
-			int longest = FontUtil.getStringWidth(setstrg);
+			double longest = FontUtil.normal.getStringWidth(setstrg);
 			for (String s : set.getOptions()) {
-				int temp = FontUtil.getStringWidth(s);
+				double temp = FontUtil.normal.getStringWidth(s);
 				if (temp > longest) {
 					longest = temp;
 				}
@@ -69,7 +69,7 @@ public class Element {
 			setstrg = sname.substring(0, 1).toUpperCase() + sname.substring(1, sname.length());
 			String displayval = "" + Math.round(set.getValDouble() * 100D)/ 100D;
 			String displaymax = "" + Math.round(set.getMax() * 100D)/ 100D;
-			double textx = x + width - FontUtil.getStringWidth(setstrg) - FontUtil.getStringWidth(displaymax) - 4;
+			double textx = x + width - FontUtil.normal.getStringWidth(setstrg) - FontUtil.normal.getStringWidth(displaymax) - 4;
 			if (textx < x) {
 				width += x - textx + 1;
 			}

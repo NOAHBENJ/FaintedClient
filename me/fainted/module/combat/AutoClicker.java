@@ -29,7 +29,7 @@ public class AutoClicker extends Module{
     //private final NumberSetting maxCps = new NumberSetting("Max CPS", 14, 1, 20, 1);
 	
 	 public AutoClicker(){
-	        super("AutoClicker", Keyboard.KEY_K, Category.COMBAT);
+	        super("AutoClicker", Keyboard.KEY_NONE, Category.COMBAT);
 	        //his.addSettings(minCps,maxCps);
 	    }
 
@@ -54,7 +54,7 @@ public class AutoClicker extends Module{
 					this.updateVals();
 				}
 			}
-			if (Mouse.isButtonDown(1)) {
+			else if (Mouse.isButtonDown(1)) {
 				
 				if (System.currentTimeMillis() - lastClick > speed * 1000) {
 					lastClick = System.currentTimeMillis();
@@ -66,7 +66,7 @@ public class AutoClicker extends Module{
 					KeyBinding.onTick(key);
 					this.updateVals();
 				} else if (System.currentTimeMillis() - hold > holdLength * 1000) {
-					KeyBinding.setKeyBindState(mc.gameSettings.keyBindAttack.getKeyCode(), false);
+					KeyBinding.setKeyBindState(mc.gameSettings.keyBindUseItem.getKeyCode(), false);
 					this.updateVals();
 				}
 			}
