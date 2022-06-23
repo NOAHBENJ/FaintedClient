@@ -1,7 +1,7 @@
 ---------------
 RENDER
 ---------------
-1. Target HUD // SOON
+
 2. Chams
 3. Hitmarkers // SOON
 4. ItemPhysics
@@ -18,7 +18,7 @@ COMBAT
 ---------------
 1. TPAura
 2. WTap
-3. Better Kill Aura
+
 4. STap
 5. Auto Soup
 6. AutoGap
@@ -26,6 +26,7 @@ COMBAT
 8. Target Strafe
 9. Criticals
 10. ComboOneHit
+11. AutoArmour - LOOK IN SAFARI HISTORY
 ----------------------
 MOVEMENT
 ----------------------
@@ -51,3 +52,4 @@ DONE
 6. NoWeather
 2. FastBow
 3. FastPlace
+BetterKillAura + TargetHUD!
