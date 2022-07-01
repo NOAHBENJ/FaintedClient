@@ -5,8 +5,12 @@ import java.awt.Color;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
+import me.fainted.Fainted;
 import me.fainted.module.Category;
 import me.fainted.module.Module;
+import me.fainted.util.gui.GuiUtils;
+import me.fainted.util.gui.RoundedUtils;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 
 public class ChinaHat extends Module{
@@ -26,6 +30,8 @@ public class ChinaHat extends Module{
 			ticks += .004 * (System.currentTimeMillis() - lastFrame);
 	        lastFrame = System.currentTimeMillis();
 
+	        ScaledResolution sr = new ScaledResolution(mc);
+	        
 	        GL11.glPushMatrix();
 	        GL11.glDisable(3553);
 	        GL11.glEnable(2848);
@@ -39,6 +45,11 @@ public class ChinaHat extends Module{
 	        final double y = (mc.thePlayer.lastTickPosY + (mc.thePlayer.posY - mc.thePlayer.lastTickPosY) * mc.timer.renderPartialTicks - mc.getRenderManager().viewerPosY) + mc.thePlayer.getEyeHeight() + 0.5 + (mc.thePlayer.isSneaking() ? -0.2 : 0);
 	        final double z = mc.thePlayer.lastTickPosZ + (mc.thePlayer.posZ - mc.thePlayer.lastTickPosZ) * mc.timer.renderPartialTicks - mc.getRenderManager().viewerPosZ;
 
+	        int xHalf = sr.getScaledWidth() - (sr.getScaledWidth() / 2);
+	        int yHalf = sr.getScaledHeight() - (sr.getScaledHeight() / 2);
+	        
+	        //RoundedUtils.drawSmoothRoundedRect(xHalf, yHalf, xHalf + 10, yHalf + 10, 3, new Color(0, 0, 0, 170).getRGB());
+	        
 	        Color c;
 
 	        final double rad = 0.65f;

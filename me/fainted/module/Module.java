@@ -19,6 +19,8 @@ public class Module {
 	private int key;
 	public boolean toggled;
 	private Category category;
+	public String displaySetting;
+	//public boolean displaySettingToggled;
 	
 	public Module(String nm, int k, Category c) {
 		name = nm;
@@ -36,6 +38,16 @@ public class Module {
 			onDisable();
 		}
 	}
+	
+	public void setDisplaySetting(String name) {
+		displaySetting = name;
+		
+	}
+	
+	public String getDisplaySetting() {
+		return displaySetting;
+	}
+	
 	
 	public void onEnable() {
 		

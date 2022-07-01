@@ -39,6 +39,7 @@ public class ModuleManager {
 		
 		newMod(new FastPlace());
 		newMod(new FastBreak());
+		newMod(new Timer());
 		
 		//RENDER
 		
@@ -55,6 +56,7 @@ public class ModuleManager {
 		
 		//MISC
 		newMod(new ColourUtilModule());
+		//newMod(new TestingRoundedRect());
 		
 	}
 	

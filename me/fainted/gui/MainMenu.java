@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import me.fainted.Fainted;
 import me.fainted.alt.GuiAltManager;
+import me.fainted.util.gui.AnimatedButton;
+import me.fainted.util.gui.AnimatedResourceLocation;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMultiplayer;
@@ -17,7 +19,10 @@ public class MainMenu extends GuiScreen{
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		mc.getTextureManager().bindTexture(new ResourceLocation("bg2.png"));
+		AnimatedResourceLocation location = new AnimatedResourceLocation("bg", 1, 15);
+		location.update();
+		
+		mc.getTextureManager().bindTexture(location.getTexture());
 		this.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, this.width, this.height, this.width, this.height);
 		
 		Gui.drawRect(0, 0, 223, this.height, 0x90000000);

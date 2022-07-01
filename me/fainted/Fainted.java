@@ -16,6 +16,7 @@ import me.fainted.module.ModuleManager;
 import me.fainted.module.combat.KillAura;
 import me.fainted.util.ColourUtil;
 import me.fainted.util.PlayerUtils;
+import me.fainted.util.gui.GuiUtils;
 import me.fainted.gui.font.FontUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
@@ -29,6 +30,7 @@ public class Fainted {
 	public static String clientStr = name + " " + version + " by " + creator;
 			
 	public static SettingsManager settingsManager;
+	public static GuiUtils guiUtils;
 	public static ModuleManager moduleManager;
 	public static ColourUtil colourUtil;
 	public static HUD hud;
@@ -56,6 +58,7 @@ public class Fainted {
 	
 	public static void startClient() {
 		settingsManager = new SettingsManager();
+		guiUtils = new GuiUtils();
 		moduleManager = new ModuleManager();
 		colourUtil = new ColourUtil();
 		modules = moduleManager.getModules();

@@ -36,10 +36,7 @@ public class HUD {
 	
 	public void draw() {
 		ScaledResolution sr = new ScaledResolution(mc);
-		
-		
 		Collections.sort(Fainted.modules, new ModuleComparator());
-		
 		int count = 0;
 		for (Module m : Fainted.instance.moduleManager.getModules()) {
 			if (!m.isToggled()) {
@@ -66,19 +63,27 @@ public class HUD {
 			if (tc.equals("blue")) { tcolor = 0xff0000ff; }
 			if (tc.equals("black")) { tcolor = 0xff000000; } 
 			
-			Gui.drawRect(sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName()) - 10, offset, sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName()) - 8, 5 + FontUtil.normal.getHeight() +  offset, color);
-			Gui.drawRect(sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName()) - 8, offset, sr.getScaledWidth(), 5 + FontUtil.normal.getHeight() +  offset, 0x90000000);
-			FontUtil.normal.drawStringWithShadow(m.getName(), sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName()) - 4, 3 + offset, tcolor);
+			//System.out.println(colourUtil.getHudToggled());
+			//System.out.println(m.name.equals("KillAura") ? m.getDisplaySetting() : "n");
+			if (colourUtil.getHudToggled()) {
+				Gui.drawRect(sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName()) - 10, offset, sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName()) - 8, 5 + FontUtil.normal.getHeight() +  offset, color);
+				Gui.drawRect(sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName()) - 8, offset, sr.getScaledWidth(), 5 + FontUtil.normal.getHeight() +  offset, 0x90000000);
+				FontUtil.normal.drawStringWithShadow(m.getName(), sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName()) - 4, 3 + offset, tcolor);
+			} else {
+				if (m.displaySetting != null) {
+					FontUtil.normal.drawStringWithShadow(m.getName(), sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName() + "" + m.displaySetting) - 4, 3 + offset, tcolor);
+					FontUtil.normal.drawStringWithShadow(m.displaySetting, sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.displaySetting + " "), 3 + offset, 0xffffffff);
+					
+					
+				} else {
+					FontUtil.normal.drawStringWithShadow(m.getName(), sr.getScaledWidth() - FontUtil.normal.getStringWidth(m.getName()) - 4, 3 + offset, tcolor);
+					
+				}
+			}
+
 			count++;
-		
-			
-			
-			
-			
 			
 		}
 	}
-	
-	
 	
 }

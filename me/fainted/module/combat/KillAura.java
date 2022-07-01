@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
 
 import com.google.common.collect.Ordering;
 
@@ -18,11 +19,15 @@ import me.fainted.Fainted;
 import me.fainted.events.Event;
 import me.fainted.events.listeners.EventMotion;
 import me.fainted.gui.GuiIngameHook;
+import me.fainted.gui.font.FontUtil;
 import me.fainted.gui.settings.Setting;
 import me.fainted.module.Category;
 import me.fainted.module.Module;
 import me.fainted.module.render.TargetHUD;
 import me.fainted.util.Timer;
+import me.fainted.util.UrlTextureUtil;
+import me.fainted.util.UrlTextureUtil.ResourceLocationCallback;
+import me.fainted.util.gui.RoundedUtils;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiPlayerTabOverlay;
@@ -40,19 +45,22 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.play.client.C02PacketUseEntity;
 import net.minecraft.network.play.client.C03PacketPlayer;
 import net.minecraft.network.play.client.C02PacketUseEntity.Action;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.network.play.client.C0APacketAnimation;
 
 public class KillAura extends Module{ 
 
+	//public boolean downloaded = false;
 	public double reach;
-	private GuiIngameHook hook = new GuiIngameHook(mc);
-	public Timer timer = new Timer();
-	public static int height, width;
+	//private GuiIngameHook hook = new GuiIngameHook(mc);
+	//public Timer timer = new Timer();
+	//public static int height, width;
 	public boolean attacking = false;
 	EntityLivingBase entity1;
 	public EntityLivingBase entity;
 	public static List<Entity> bots = new ArrayList<Entity>();
-	public int color = -1;
+	//public ResourceLocation img;
+	//public int color = -1;
 	
 	public KillAura() {
 		super("KillAura", Keyboard.KEY_K, Category.COMBAT);
@@ -65,22 +73,30 @@ public class KillAura extends Module{
         Fainted.instance.settingsManager.rSetting(new Setting("KA.TargetHUD", this, true));
         Fainted.instance.settingsManager.rSetting(new Setting("KA.AntiBot", this, true));
         Fainted.instance.settingsManager.rSetting(new Setting("KA.NoSwing", this, false));
-        
-
 	} 
+	
+	
+	
+	public void setDisplaySettingg(String s) {
+		super.setDisplaySetting(s);
+	}
 	
 	@Override
 	public void onRender() {
 		
 		boolean toggled = Fainted.instance.settingsManager.getSettingByName("KA.TargetHUD").getValBoolean();
+		String reachh = Integer.toString((int)Fainted.instance.settingsManager.getSettingByName("KA.Reach").getValDouble());
+		this.displaySetting = reachh;
+		//System.out.println("Set displaySetting to: " + reachh);
 		//DEBUG: System.out.println(toggled);
 		
 		if (this.isToggled() && toggled == true) {
 			
+			
 			if (entity == null || bots.contains(entity)) {
 				return;
 			}
-			EntityLivingBase entity1 = entity;
+			/*EntityLivingBase entity1 = entity;
 			ScaledResolution sr = new ScaledResolution(mc);
 			if(entity.getHealth() == 0 || mc.thePlayer.getDistanceToEntity(entity1) >= reach * 1.7f || entity1 == null) {
 				return;
@@ -93,8 +109,31 @@ public class KillAura extends Module{
 			mc.fontRendererObj.drawStringWithShadow(entity1.getName(), halfWidth + 2, halfHeight + 2, color);
 			mc.fontRendererObj.drawStringWithShadow(Math.round(entity1.getHealth()) + "§c \u2764", halfWidth + 2, halfHeight + 12, -1);
 			GuiInventory.drawEntityOnScreen(halfWidth + mc.fontRendererObj.getStringWidth(entity1.getName()) * ((int)1.25f) + 22, halfHeight + 20, 10, 50, 50, entity1);
+			*/
 			
+			EntityLivingBase entity1 = entity;
+			
+			if(entity.getHealth() == 0 || mc.thePlayer.getDistanceToEntity(entity1) >= reach * 1.7f || entity1 == null) {
+				//downloaded = false;
+				return;
+			}
+			
+			ScaledResolution sr = new ScaledResolution(mc);
+			int xHalf = sr.getScaledWidth() - (sr.getScaledWidth() / 2);
+	        int yHalf = sr.getScaledHeight() - (sr.getScaledHeight() / 2);
+	        //EntityPlayer entity = mc.thePlayer;
+	        float health = entity.getHealth();
+	        float increment = 80 / entity.getMaxHealth();
+	        
+	        RoundedUtils.drawSmoothRoundedRect(xHalf + 5, yHalf + 5, xHalf + 100 - 5, yHalf + 40, 10, new Color(0, 0, 0, 170).getRGB());
+	        Gui.drawHorizontalLine(xHalf + 10, xHalf + 9 + increment * health + 1, yHalf + 60 - 25 , 2, health == 20 ? 0xff00ff00 : health > 16 ? 0xffB4F718 : health > 12 ? 0xffF7F118 : health > 8 ? 0xffF7B718 : health > 4 ? 0xffEE6E04 : 0xffff0000);
+	        Gui.drawHorizontalLine(sr.getScaledWidth() + 1, sr.getScaledWidth() + 2, sr.getScaledHeight() + 2 , 1, new Color(255,255,255,255).getRGB());
+	        
+	        FontUtil.normal.drawString(entity.getName(), xHalf + 10, yHalf + 10, 0xffffffff);
+	        FontUtil.normal.drawString("Health: §c" + Integer.toString(Math.round(entity.getHealth())), xHalf + 10, yHalf + 15 + FontUtil.normal.getHeight(), 0xffffffff);
+	       	   
 		}
+		
 		
 	}
 	

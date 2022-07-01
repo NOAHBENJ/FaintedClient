@@ -47,54 +47,6 @@ public class FileManager {
 		} else {
 			loadMods();
 		}
-		if(!xray_blocks.exists()) {
-			try {
-				BufferedReader load = new BufferedReader(new FileReader(xray_blocks));
-				JsonObject json = (JsonObject)JSONUtils.jsonParser.parse(load);
-				load.close();
-				JsonObject jsonMod = new JsonObject();
-				for (int i = 0; i < blocks.length; i++) {
-					//jsonMod.addProperty("true", null);
-				}
-				
-				xray_blocks.createNewFile();
-				saveBlocks(null);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else {
-			loadBlocks();
-		}
-	}
-	
-	public int[] loadBlocks() {
-		try {
-			BufferedReader load = new BufferedReader(new FileReader(xray_blocks));
-			JsonObject json = (JsonObject)JSONUtils.jsonParser.parse(load);
-			load.close();
-			
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-		
-	}
-
-	public void saveBlocks(int[] blocks) {
-		BufferedReader load;
-		try {
-			load = new BufferedReader(new FileReader(xray_blocks));
-			JsonObject json = (JsonObject)JSONUtils.jsonParser.parse(load);
-			load.close();
-			JsonObject jsonMod = new JsonObject();
-			for (int i = 0; i < blocks.length; i++) {
-				//jsonMod.addProperty("true", null);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 	}
 	
