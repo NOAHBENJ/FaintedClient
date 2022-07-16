@@ -1,0 +1,55 @@
+---------------
+RENDER
+---------------
+
+2. Chams
+3. Hitmarkers // SOON
+4. ItemPhysics
+7. NoHurtCam
+8. XRay // DONE, MAKING SELECTION W/ CONFIG
+----------------
+PLAYER
+----------------
+2. Stealer // MAKING PACKET SYSTEM
+4. Blink
+5. AutoTool
+---------------
+COMBAT
+---------------
+1. TPAura
+2. WTap
+
+4. STap
+5. Auto Soup
+6. AutoGap
+7. AutoPot
+8. Target Strafe
+9. Criticals
+10. ComboOneHit
+11. AutoArmour - LOOK IN SAFARI HISTORY
+----------------------
+MOVEMENT
+----------------------
+1. Bow Fly
+2. Click TP
+3. NoSlow
+4. LongJump
+5. Strafe
+6. Phase
+7. InvMove
+8. Jesus
+9. Better Spider
+--------------------
+GHOST CHEATS
+--------------------
+1. Reach
+3. AimAssist
+--------------------
+DONE
+--------------------
+5. Nametags
+2. Auto Clicker
+6. NoWeather
+2. FastBow
+3. FastPlace
+BetterKillAura + TargetHUD!
